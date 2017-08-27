@@ -96,6 +96,7 @@ game2048.prototype = {
 	move: function(direction){
 		var j;
 		switch(direction){
+			// 上
 			case 'W':
 				for(var i=4,len=this.tiles.length;i<len;i++){
 					j = i;
@@ -105,6 +106,7 @@ game2048.prototype = {
 					}
 				}
 				break;
+			// 下
 			case 'S':
 				for(var i=11;i>=0;i--){
 					j = i;
@@ -114,6 +116,7 @@ game2048.prototype = {
 					}
 				}
 				break;
+			// 左
 			case 'A':
 				for(var i=1,len=this.tiles.length;i<len;i++){
 					j = i;
@@ -123,6 +126,7 @@ game2048.prototype = {
 					}
 				}
 				break;
+			// 右
 			case 'D':
 				for(var i=14;i>=0;i--){
 					j = i;
@@ -133,6 +137,7 @@ game2048.prototype = {
 				}
 				break;
 		}
+		// 判断是非有空位置
 		var full = true;
 		for (var i = 0; i<this.tiles.length; i++) {
 			 if(this.tiles[i].getAttribute('val') == 0){
