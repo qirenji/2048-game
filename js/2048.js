@@ -19,6 +19,7 @@ window.onload = function(){
 			keynum = ev.which;
 		}
 		keychar = String.fromCharCode(keynum);
+		console.log(keychar);
 		if(['W','S','A','D'].indexOf(keychar) > -1){
 			if(game.over()){
 				if(confirm('游戏结束！是否重新开始～')){
@@ -112,7 +113,7 @@ game2048.prototype = {
 					j = i;
 					while(j <= 11){
 						this.merge(this.tiles[j+4],this.tiles[j]);
-						j -= 4;
+						j += 4;
 					}
 				}
 				break;
@@ -121,6 +122,7 @@ game2048.prototype = {
 				for(var i=1,len=this.tiles.length;i<len;i++){
 					j = i;
 					while(j%4 != 0){
+						console.log(this.tiles[j-1],this.tiles[j])
 						this.merge(this.tiles[j-1],this.tiles[j]);
 						j -= 1;
 					}
@@ -174,7 +176,7 @@ game2048.prototype = {
 	win: function(){
 		var isConfirm = false;
 		for(var i = 0, len = this.tiles.length; i < len; i++){
-      if(this.tiles[i].getAttribute('val') == 64){
+      if(this.tiles[i].getAttribute('val') == 2048){
         if(!isConfirm){
         	if(!confirm('恭喜你,获得胜利！是否继续游戏？')){
         		window.location.reload();

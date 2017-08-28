@@ -3,7 +3,11 @@
 a {
     text-decoration: none;
 }
- 
+
+.tile
+{
+    transition: .2s;
+} 
 #div2048
 {
     width: 500px;
